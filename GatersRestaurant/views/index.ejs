@@ -1,0 +1,14 @@
+<% include ./partials/header %>
+
+        <div class="ui relaxed divided list">
+            <% foods.forEach(function(food){ %>
+                <div class="item">
+                    <div class="content">
+                        <a class="header"><%= food.name %> --- <%= food.price %></a>
+                        <div class="description"> <%= food.description %></div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        
+<% include ./partials/footer %>
