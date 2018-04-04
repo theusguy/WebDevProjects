@@ -1,0 +1,1670 @@
+
+My Notes from leanring Web Development through Books and Udemy.
+
+
+Introduction to Front End Web Development
+HTML CSS and JavaScript
+Understand how the internet works
+Understand the difference b/w backend frontend and full stack
+Front End Basics
+Front End is the stuff that you see and interact with HTML, CSS, and JS
+Back End is everything else: so many choices
+Restaurant analogy: The backend is everything that happens in the kitchen; the front end is what is plated and sent to your table.
+HTML
+HyperText Markup Language
+Defines the structure of a webpage
+“put an image here”
+“put a form here”
+The “nouns” of a webpage
+CSS 
+Cascading Style Sheets
+Defines the style of HTML
+“make all text purple”
+“give the first image a yellow border”
+The “adjectives” of a webpage
+The skin to HTML skeleton
+JavaScript
+Adds logic and interactivity to a page
+“Do some math”
+“Change color when the user clicks”
+“Load new data from twitter”
+The actions or “verbs” of a webpage
+---------- HTML Basics I ----------------------------------------------------------------------------------------------
+Objectives
+Write simple HTML documents
+Understand the difference between closing and self closing tags
+Write tags with attributes
+Use MDN as a reference
+Fiven an image, write the corresponding HTML
+History of HTML
+Created in 1989/1990
+Allowed publishing and exchanging of scientific and technical documents
+Allowed electronic linking of documents via hyperlinks
+
+The General Rule
+tags sandwich text
+Ex. <tagName> Some Content </tagName>
+mdn = Mozilla Developer Network
+
+<!DOCTYPE html> is an indicator that this document is using HTML 5.
+
+<html></html> is just a tag in which all other tags must be descendants of this tag.
+
+<head></head> is containing the metadata of the document.
+
+<body></body> represents the content of HTML documents.
+
+To write a note to yourself in HTML is <!-- “Your comment here” → Sublime shortcut is CTRL /
+
+inline elements will not create a new line unlike these heading tags FOR ex. <h1></h1>
+
+Headings h1 - h6
+
+strong = bolded (HTML older version: <b></b>)
+em = emphasis (italics) (HTML older version <i></i>)
+first older HTML versions of bolding and italicizing would ‘style’ the text. But HTML5 is trying to make sure the style and structure are 2 different things. because CSS is style. HTML is structure.
+
+Ordered list <ol></ol>
+Inside ol we must make li tags <li></li> which stands for list item.
+Unordered list
+Inside ul we must make li tags <li></li> which stands for list item.
+You can use this consistent system of tags to make nested lists.
+
+div tags
+<div></div>
+Allow you to group content together. Way of grouping things together.
+div (and span) = generic container
+div is a block level element like paragraph..it makes its own line
+
+span tags
+just like div tags except span is inline container.
+
+HTML attributes
+ADding additional information to tags or HTML elements
+a key value pair. a property = corresponding value.
+<tag property = “corresponding value”></tag>
+Ex. <img src=”corgi.png”>
+
+---------- HTML Intermediate ----------------------------------------------------------------------------------------
+two big topic of this section HTML tables and forms in HTML
+first objective different elements involved in making a  table
+
+HTML forms
+write valid forms by using multiple tags
+How we get input from user
+Use the <form></form> tag
+Use the <input></input> tag
+Use the <label></label> tag
+Write simple validations
+
+The <form> tag
+action - the URL to send form data to
+method - the type of HTTP request
+
+
+they dont really do anything unless you have backend code. like the sign in button wont do anything
+Its a shell/container for different
+ input types.
+By making form tag you dont really see anything.
+it sends data from form to a database somewhere
+First it decides where the data goes to (action)
+what types of http request (getrequest or postrequest) (method)
+
+<input> tag
+what actually goes inside of our forms
+use type attribute to determine the type of input.
+
+Example:
+<h1>Sign in</h1>
+
+<form action=”/sign-in-url” method=”post”>
+	<input type=”text”>
+	<input type=”password”>
+	<button>Log In</button>
+</form>
+form is a block level statement NOT IN-LINE
+
+get request is default
+
+labels
+lets us add captions to individuals forms 
+labels are useful for (for example: visually impaired aid software + other stuff)
+one way to use labels is to make label tag then put input tags nested inside
+Like: <label>
+	Username:
+	<input type=”text” placeholder=”Username”>
+Like: </label>
+the other way is to use for attribute in labels and id attribute in inputs to linked labels with inputs (NOTE: the id and for attribute must hold same value!!)
+
+Simple VAlidations
+To enforce rules and structure 
+The ‘required’ attribute validates that an input is not empty.
+There are also type validations. Try changing “type” from “text” to “email”
+
+Other forms of user input is the radio button (which is just input tag with radio type attribute), then there is the select tag (which is a drop down menu), and there’s a textarea tag (which is a multiple line text box)
+
+radio button can be turn on but once on it can never turn on (usually when user has one choice,like gender you have to pick one)
+checkbox button can be turn on and off whenever.
+
+if button is last thing in form it will submit form
+
+name attribute is what http request calls the stuff you name attribute. So like choosing between two radio buttons, you should use name attribute to ensure that one of the choice can be selected only. because the name attribute submits an HTTP request and obviously it needs to make sure it has one thing to send.
+
+name attribute will show up as like a variable in the query in the link above. value attribute acts as the equivalent (the value) of the name attribute on the web link shown.
+
+<select></select> is the drop down menu tag.
+inside select tag there is an option tag for each option in the drop down menu
+obviously in the code this is all before the button in form because button at the end of form will automatically send all info to where ever when button is clicked. obviously use name and value attribute if u wanna show this decision on url.
+
+<textarea> is a separate type of form control. use rows and cols attributes for textarea size management.
+
+to make sure password is the corresponding length of what is required then use the pattern attribute. pattern=”.{5,10}” remember the {} and the dot before it.
+
+---------- CSS Basics -------------------------------------------------------------------------------------------------
+Objective
+Define the “General Rule” of CSS - How to write valid CSS files
+Correctly include CSS files inside HTML files
+Select elements by tag name, classes and IDs
+Style elements with basic properties like color and background
+Use the Chrome CSS Inspector to debug HTML and CSS
+Intro to CSS
+Define CSS and the role that it plays in WebDev
+View websites before and after CSS has been added
+Understand the “general rule” for CSS Syntax
+Cascading Style Sheets
+The “Adjectives” or the skin 
+
+The General Rule
+selector {
+	property: value;
+	anotherProperty: value;
+}
+
+Where to write CSS?
+Inline or Style Tag?
+INLINE BAD IDEA
+Do not do CSS styling inside HTML because those are two different things. HTML is all structure. CSS styling.
+Wee need to use link tag to connect html file with css file
+link and style tags should be in head NOT BODY
+
+COlors in CSS
+Hexadecimal
+# + String of 6 Hexadecimals numbers (0-F)
+
+RGB
+3 Channels: Red, Green, Blue
+Each ranges from 0 - 255
+
+RGBA
+just like rgb except is has an alpha(transparency) channel. Ranges from 0.0 to 1.0.
+
+To change background color
+Use Background tag!
+Reminder: to change text, use color tag.
+
+background-repeat: no-repeat; can be used to not make background repeat as tiles.
+
+background-size: cover; will stretch photo to fit the whole screen.
+
+a border in CSS has 3 diff properties. border-color, border-width, border-style. or you can write it all together with using border: color wdith style;
+
+CSS Selectors
+Element, ID, and Class
+
+Element Selector
+Selects all instances
+
+ID Selector (add it as attribute to an html instance)
+Single out one instance of something
+Then in CSS use the #’IDname’
+Can only be used one time in page as per name
+
+But sometimes there are different types of elements 
+Class Selector
+Selects all elements  with a given class
+so in HTML add class attribute
+Then in CSS use .”className” { }
+
+Other Types of Selectors
+
+Star
+used in CSS by * { }. It applied whatever to all elements in the HTML page.
+
+Descendant Selector choose all of somethings that nested (descendants) of another element.
+li a {
+ /* this will applied CSS styling to all <a> tags inside <li> tags
+}
+
+Adjacent Selector
+Let us select elements that is right next to another element. not indented not inside the other element.
+In CSS styling we would call it by using h4 + ul { }.
+This is apply CSS styling to all ul’s that are adjacent to h4.
+
+Attribute Selector
+Select element based on any attribute.
+In CSS Syntac we type a[href=”http://www.google.com”] { color: blue; }
+so ELEMENT[ATTRIBUTE = VALUE] {}
+nth of type
+Chooses every number-th element 
+ul:nth-of-type(3) { color: purple; } 
+Choose every 3rd unordered list to purple. 
+instead of three you can use ‘even’ to say “every other”
+
+CSS has inheritance
+so if you do something to <ul> then it will apply it to <li>.
+If you set a property to a parent element it may affect the child as well.
+
+Specificity: multiple styles targeting one element. What ever style is closest or more specific to the actaul element will win the inheritance battle.
+so if we do this:
+body {
+	color: red;
+} 
+ul {
+	color: green;
+}’
+This will make all body red but ul will turn green because its more specific.
+
+Should be somewhere above in notes but: element selectors = type selectors = tag selectors. Just some names that I might use but the formal name is type selector.
+
+Specificity 
+Type Selectors, element 1x more specific 
+Classes, attribute and Pseudo-Class Selectors, classes attributes 10x more specific
+ID Selectors, IDs 100x more specific
+
+---------- CSS Intermediate ------------------------------------------------------------------------------------------
+Objectives
+Manipulate common font and text properties using css
+Include external fonts using Google Fonts
+Define and manipulate the four components of the Box Model.
+
+font-family: “font”; is how you change the font in CSS
+font-size: SIZE; is how you change the size in CSS
+different measurements of how you can indicate the size wanted.
+px - pixels
+em - relative font size so if we apply this to the parents element p, 2.0em will double the font that is being used regularly in <p>. so whatever the p size is, em will do double if 2.0em.
+
+font-weight: bold; 
+font weight refers to the thickness and lightness of the font
+some options are bold, normal. some specific fonts let you use numerical values ranging from 100 to 800.( These values are incremented by the hundreds) so 100, 200, 300, 400, etc.
+
+line-height controls the line height like double spacing, single spacing etc.
+line-height in CSS is given values to be multiplied by what the fonts default line height is.
+so line-height: 2; will do 2 times the line height of the font being used.
+
+text-align just aligns the text
+
+text-decoration
+can give underline effect strikethrough(line-through) or even overline effect.
+
+you can import fonts from google fonts as well. find fonts on googleapi then create a link tag in your html file. then you have the fonts. you can use these fonts in CSS.
+
+The Box Model
+“In a document each element is represented as a rectangular box. In CSS, each of these rectangular boxes is described using the standard box model. Each box has four edges: the margin edge, border edge, padding edge, and the content edge.” --MDN
+margin
+-------------------------------------------------------border-------------------------------------------------------
+padding
+-------------------
+|   Element    |
+-------------------
+padding
+--------------------------------------------------------border---------------------------------------------------------
+margin
+you can set the content width and height by using pixels or even percentages. percentages are dependent on screen size and will change accordingly.
+then after setting the content settings, you can set the paddings size.
+either do padding: 10px; to put 10px all around the content. or use the padding-top, padding-right, padding-bottom, padding-left. (in clockwise direction.) or if you want you can individually assign each side of padding a modified size.
+same things with margin.
+border we already know is associated by size, color, and type.
+also we can use auto to automatically center the everything below margin.(including border, padding, and content.) if set by two values per margin:, then first applies to top and bottom, next applies to left and right. If 3 margins values, first applies to top, then left and right, then bottom.
+
+PhotoGrid Exercise
+div are line taking elements but to change that we will use the float element (css)
+float in a sense changes the gravity to whatever side you want like float: left; is changing the gravity so divs will stack on each other all falling towards the left
+regular div is:
+
+
+
+
+
+
+div with float: left; ← ← is where the gravity is pointing
+
+
+
+
+
+
+you can use float to remove the little white space that html puts in the contents by default.
+
+---------- Bootstrap ----------------------------------------------------------------------------------------------------
+Objectives:
+Define Bootstrap and explain why we use it
+Include Bootstrap locally and by using a CDN
+Use common Bootstrap components like navs and buttons
+Build a layout using Bootstrap Grid System
+Bootstrap is just a huge file of javascript and css that will be used as a framework for developing responsive, mobile first projects on the web very fast.
+Bootstrap is like lego pieces that we can add on to out sites 
+
+Bootstrap docs 
+
+Components contains the bigger pieces that we can use such as navbars
+
+Nav bars turn to hamburger nav bars when mobile mode
+
+In nav bars hamburger button. To link button with content we need to make sure the ‘data-target’ attribute matches the id of div that surrounds content. In data-target we need to name our thing same as id and it follows the octothorp(#). 
+
+BootStrap GRID SYSTEM!!!
+Most likely the number one reason people use bootstrap. It helps with structure. 
+
+Objectives
+Understand Purpose of the Grid System.
+Understand the 4 different sizes .
+Write nested grid systems.
+There are 12 columns in the grid system.
+
+JAVASCRIPT INTRODUCTION
+
+Unit Objectives
+Javascript is the verbs of a webpage
+Evaluate JS using the developer console
+List the 5 JS Primitives 
+Define variables with the var keyword
+Write code using the console.log, alert, prompt
+
+Java Basics
+Primitives
+Introduce the 5 primitive data types
+Work with numbers and numeric operators
+Work with strings and common string methods
+
+5 Primitives types
+//Numbers
+4
+9.3
+-10
+JavaScript does care if number is whole or fractional numbers or negative numbers. Its all numbers not int, double like how it is in Java for example.
+
+//Strings
+“Hello World”
+“43”
+Important thing about Strings is there always inside quotes
+It can be both single or double quotes. But if beginning quote is double then ending has to be double too. Likewise for single quotes.
+
+//Booleans
+True
+False
+Booleans only store values of false or true.
+
+//null
+Null
+Only stores value of null which means “nothing”
+
+//undefined
+Undefined
+Theres only one type of undefined, its just a value.
+
+In javascript what you type is just returned simply.
+
+We can do math with numbers like add subtract multiply divide modulo etc
+ORDER OF OPERATIONS IS INTACT IN JS as well!!!!!
+
+We can use modulo - remainder operator as well with number in javascript
+
+//Single Quotes or Double Quotes OK as long as same type used in beginning and end
+“Hello world”
+‘Hello World’
+
+//Concatenation
+“Charlie “ + “Brown” will add up to “Charlie Brown”
+
+//Escape Characters start with “\”
+Use Backslash to indicate escape characters which would usually cause a confusion error and end your string earlier than intended such as \” or \’ or \\.
+
+//Strings have a length property to calculate the length of character including spaces and non-letter characters.
+“Hello world”.length   //11
+
+//Access individual characters using [] and an index
+“Hello”[0]  //”H”
+“The Beatles”[4]  //”B”
+
+100 % 3
+	1
+
+(“blah” + “blah”)[6]
+	“a”
+
+“Hello”.length % “hi\\”.length
+	2
+******NOTE: the “hi\\”.length first runs the “hi\\” which equates to “hi\” then when applying the .length property to the new string it equates to 3.******
+
+JavaScript Variables
+//Variables are simply containers thats are named and store values
+//They follow this pattern:
+var yourVariableName = yourValue;
+//They can store all of the values we’ve seen
+var name = “Rusty”;
+var secretNumber = 73;
+var isAdorable = true;
+
+//Recall the stored value by calling the variable name
+var name = “Rusty”;
+“Hello there “ + name  //”Hello there Rusty”
+
+var num = 37;
+Num + 3 + 10   //50
+
+//We can also update existing variables
+var name = “Robert”;
+name = “Bob”
+
+You can change the value by just making it equal to something else but I can also change the type as well.
+
+Javascript has dynamic typing which means we change the type on tthe go and Javascript will have no problem.
+
+Camel case
+First word is always lowercase and then next word first letter is uppercase.
+Ex. thisIsCamelCase
+
+Snake Case
+Uses underscores between words
+Ex. this_is_snake_case
+
+Kebab Case
+Uses dashes to separate words
+Ex. this-is-kebab-case
+
+IN JAVASCRIPT WE USE CAMEL CASE!!!!
+
+Null and Undefined
+
+//The two other primitives are null and undefined
+//Variables that are declared but not initialized are undefined
+// The following variables are undefined:
+var name;
+var age;
+So now if i type name in my console I will get undefined because although the variable exists, it is undefined at the point of runtime. However if i try to run a variable that doesn't even exist then JS will give me an error message of X“‘var’ is not defined” Comments are undefined!!
+
+//null is “explicitly nothing”
+var currentPlayer = “Charlie”;
+currentPlayer = null;  //game over
+
+alert method
+alert(“Hello there!!!”);
+alert(3430298408);
+alert(198 * 45);
+
+prompt
+prompt(“What is your name?”)
+Prompt gets value from user so usually you can use it to store a value in a variable.
+
+console.log 
+console.log(“hello from the console”)
+
+clear() - is a method that clears the console window.
+
+JS method stores other JS information to be run at calling.
+
+Order of where you put the script tag that connects js file affects what loads first. If you put in head of html before body then JS prompt/etc will load first then the html body will load after js is taken care of. 
+
+JAVASCRIPT: CONTROL FLOW
+
+Unit Objectives
+Evaluate complex logical expressions
+Write 3-part JS conditional statements
+Write JS while loops and for loops
+Translate between while and for loops
+Boolean Logic
+Everything starts with the idea that a statement is either True or false
+Then we can combine initial statements to create more complex statements that also evaluate to True or False
+
+
+
+Comparison Operator
+Name
+>
+Greater than
+>=
+Greater than or equal to
+< 
+Less than
+<=
+Less than or equal to
+==
+Equal value (not checking for type)
+!= 
+Not equal to
+===
+Equal value and type
+!==
+Not equal value or equal type
+
+In JS the number 5 could be equal(== only) to the string “5”
+Equality Operators
+== vs ===
+“==” performs type coercion, while “===” does not.
+In JS, if you use == then JS will try to make the values the same type then compare. THis is called type coercion. But === will not perform type coercion and it compares the values for what they are.
+Null == undefined  //true
+99 == “99”  //true
+
+A few interesting cases
+True == “1” //true
+False == 0 //true
+Null == undefined //true
+NaN == NaN //false!!
+
+Logical Operators
+
+Operator
+Name
+Example
+Result
+&&
+AND
+5 < 10 && 5 !== 5
+True&&False = False 
+||
+OR
+9 > 9 || 5 === 5
+False||True = True
+!
+NOT
+!(5 === 9)
+!(False) = True
+
+Truthy and Falsy Values
+Values that aren’t actually true or false, are still inherently “truthy” or “falsely” when evaluated in a boolean context..
+
+Falsey Values:
+False
+0
+“”
+Null
+Undefined
+NaN
+These values will always be falsely. Other than that, Everything else is Truthy.
+
+JS Conditionals
+Making decisions with code
+
+If 
+Else If
+Else
+
+If you are younger than 18 (IF)
+	You cannot enter the venue
+If you are between 18 and 21 (ELSE IF)
+	You can enter but cannot drink
+Otherwise (ELSE)
+	You can enter and drink
+
+JS Loops
+Objectives
+Understand the purpose of loops
+Define “DRY” code
+Write simple while loops
+DRY: Don’t repeat yourself
+We want to keep our code as DRY as possible. It saves us a lot of time and makes our code cleaner.
+
+While Loops
+Repeat code WHILE a condition is true
+
+While (someCondition) {
+//run some code
+}
+Its very similar to an if statement, except it repeats a given code block instead of just running it once.
+While Loops can turn into Infinite Loops if we’re not careful enough. Infinite Loops occur when the terminating condition in a loop is never true.
+
+*****Side Note: write all the tasks you have to do as comments on your code file. List them out as comments!*****
+
+
+For Loops
+Objectives
+Understand the purpose of for loops
+Write valid for loops
+Compare and contrast while loops and for loops
+For (init; condition; step) {
+//run some code
+}
+Variable inside the for loop only exists in the for loop. It is a temporary var that does not exist outside of the for loop.
+
+JAVASCRIPT: FUNCTIONS
+Functions are the building block of almost everything in JS
+Main Objectives:
+Write function declarations and function expressions
+Explain the difference between console.log and return
+Define functions that take multiple arguments
+
+Functions
+Understand why we use functions
+Define a function without arguments
+Define a function with arguments
+Return a value from a function
+Functions let us wrap bits of code up into REUSABLE packages. They are one of the building blocks of JS.
+
+function doSomething() {
+	console.log(“Hello World”);
+}
+
+Writing just the function’s name is like referring to it and that will end up just writing what the code is. 
+Writing the function with the parenthesis (parameters? EDIT: IT’S CALLED ARGUMENTS) will actually execute the function. Instead of just redisplaying it.
+
+clear() function - predefined function in JS that clears the console.
+
+Arguments - The inputs of functions
+
+
+The Return Keyword
+This keyword is how we get a an output from our functions
+Functions are a machine. It takes arguments as inputs and does something with it and then output something different using return.
+(Just like Java)!!
+Only one return per function. So there can be multiple inputs(arguments) but only one output.
+The return keyword stops execution of a function.
+
+Two different ways to writing a function.
+//Function Declaration
+function capitalize(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+//Function Expression
+var capitalize = function(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+} 
+One small difference..if var capitalize is changed then function is completely lost.
+
+JS Scope
+Scope is the context that code is executed in.
+When we create a function, it has its own scope. Its own set of variables.
+When we define something outside a function. Function has access to it.
+
+Higher Order Functions
+Are functions that take a function as an argument or return a function.
+Set interval - it takes a function and it will call that function when it is called. (We can time it out).
+setInterval(anotherFunc, timeInMilliSeconds);
+**setInterval returns a number when called upon which is used to stop the sequence by using 
+clearInterval(numberPassedBySetInterval);
+
+UNIT 11: JAVASCRIPT ARRAYS
+
+Array is data structure
+Data Structure is way of holding data.
+
+Main Objectives:
+Define and add data to arrays
+Utilize built-in array methods.
+Console Todo List.
+
+Understnad Arrays conceptually
+Write code using JS Arrays
+In JS, Arrays are flexible. They can add more data or remove data from existing condition.
+Var colors = [“red”, “orange”, “yellow”]; //Notice how var will always be declared the same way
+                         //No matter what you are storing in it.
+Colors[3] = “green”; //This will add another element in the existing array.
+
+Var friends = []; //Common way
+Var friends = new Array() //uncommon.
+
+Array can hold any type of data in the same array. They dont have to be of one type.
+
+Array have a length property.
+Nums.length;
+
+Array Methods
+
+Objectives:
+push/pop
+shift/unshift
+indexOf
+Slice
+
+Push/Pop
+Push = adding something to the very end of an array
+Push also returns the length of the array
+
+Pop = removes the last element in the array
+Does not take any arguments.
+Returns the removed element
+
+Shift/Unshift
+
+Unshift = Adding something to the very beginning or front of the array’
+Returns the length of the array
+
+Shift = removes the first item in the array
+Returns the removed element
+
+Push/Pop and Shift/Unshift come from stacks and queues.
+
+IndexOf
+Takes an argument and tries to find that argument in a given array.
+If found, it will give the first index of the item.
+Else it would give -1 if element is not present.
+
+Slice
+Use slice to copy parts of an array. //pass in arguments the number index of start, and index+1 of the ending element.
+We can use it to copy an entire array too //to do so, don't pass any arguments at all
+Slice leaves original array untouched
+
+
+
+
+
+JS Objects
+
+Objectives: 
+Understand objects conceptually
+Write code using JS Objects
+  
+
+var person = {
+	name: “Travis”,
+	age: 21;
+	city: “LA”
+};
+Unlike arrays, objects have no order
+
+So person properties can be written in any order.
+
+To Retrieve data from objects
+We can use 
+Bracket
+Dot Notation
+//bracket notation, similar to arrays:
+console.log(person[name]);
+
+//dot notation
+console.log(person.name);
+
+There are restrictions however,
+You cannot use dot notation if the property starts with a number
+someObject.1blah //INVALID
+someObject[“1blah”] //VALID
+You can lookup using a variable with bracket notation
+Var str = “name”;
+someObject.str //doesnt look for name, it just calls it
+someObject[str] //foes evaluate str and looks for “name”
+You cannot use dot notation for property names with space
+someObject.fav color //INVALID
+someObject[“fav color”] //VALID
+
+Updating Data
+Just like array; access a property and reassign it
+Example:
+var person = {
+	name: “travis”,
+	age: 21,
+	city: “LA”
+};
+
+//to update age
+person[“age] += 1;
+//to update city
+person.city = “London”
+
+Creating Objects
+Like arrays, there are a few methods of initializing objects
+//make an empty object and then add to it
+var person = {};
+person.name = “Travis”;
+person.age = 21;
+person.city = “LA”;
+
+//all at once
+var person = {
+	name: “Travis”,
+	age: 21,
+	city: “LA”
+};
+
+//another way of initializing an Object
+var person = new Object();
+person.name = “Travis”;
+person.age = 21;
+person.city = “LA”;
+
+Object Blueprint
+var varName = {
+	key: value
+}
+Arrays vs Objects
+
+
+Intro to DOM Manipulation
+Objectives
+Define what the DOM is
+Understand why DOM Manipulation is awesome
+List a few examples of sites that use JS to manipulate the DOM
+Understand the SELECT, then MANIPULATE workflow
+
+THE DOM
+Document Object Model
+It is the interface between your Javascript and HTML + CSS
+
+DOM Selectors
+The document comes with a bunch of methods for selecting elements. Most common ones we’re learning are:
+document.getElementById()
+document.getElementsByClassName()
+document.getElementsByTagName()
+document.querySelector()
+document.querySelectorAll()
+
+document.getElementById()
+<li id=”bold”>This text will be bold</li>
+So to select this statement above, we can select it by ID
+document.getElementById(“bold”);
+
+
+document.getElementByClassName()
+<li class=”bold”>This text will be bold</li>
+So we can select this statement above by class
+document.getElementsByClassName(“bold”);
+
+document.getElementByTagName()
+<li id=”bold”>This text will be bold</li>
+So to select this, we can select it by tag name
+document.getElementByTagName(“li”);
+
+All these above methods select all that fit into its category. Meaning, for example, document.getElementByTagName will choose all under that tag.
+
+To access individual element selected
+Var tag = document.getElementByTagName(“li”);
+Tag[0] will hold the first li tag in the HTML file.
+This is basically an object and not an array!
+Tag[0] is an object with many objects inherited from document.
+
+document.querySelector()
+<li id=”flume”>New new</li>
+To select anything with querySelector you just use the CSS way of selecting objects.
+document.querySelector(“#id”);
+**This method however only chooses the first one in the HTML file and not all of them.
+
+To select all instead of just the first one us:
+document.querySelectorAll()
+
+Manipulating in DOM Manipulation
+Changing an element’s style
+adding/removing classes
+Changing the content of a tag
+Changing attributes(src, href, etc.)
+
+//SELECT
+Var tag = document.getElementById(“highlight”);
+
+//MANIPULATE
+tag.style.color = “blue”;
+tag.style.color = “10px solid red”;
+tag.style.fontSize = “70px”;
+tag.style.background = “yellow”;
+tag.style.marginTop = “200px”;
+But there’s a problem with above code.
+We need to use every language for its own purpose an try not to overlap in unecessary ways like we did with styling content (CSS’s job) in JS.
+HTML = Structure
+CSS = Presentation
+JS = Behavior
+
+We should define a CSS class and then toggle it on or off with JS.
+/* DEFINE A CLASS IN CSS */
+.some-class {
+	color: blue;
+	border: 10px solid red;
+}
+
+//IN JS FILE
+Var tag = document.getElementById(“highlight”);
+//ADD THE NEW CLASS FROM CSS TO THE SELECTED ELEMENT
+tag.classList.add(“some-class”);
+
+//REMOVE A CLASS FROM THE SELECTED ELEMENT
+tag.classList.remove(“another-class”);
+
+//TOGGLE A CLASS meaning when called it will add or remove based on 
+//what the element currently has. It will change it to opposite.
+tag.classList.toggle(“another-class”);
+
+textContent
+Returns a string of all the text contained in a given element
+<p> 
+	This is an <strong>awesome</strong> paragraph.
+</p>
+
+//IN JS FILE
+//Select the <p> tag
+Var tag = document.querySelector(“p”);
+
+//Retrieve the textContent:
+tag.textContent;
+
+//Alter the textContent:
+tag.textContent = “blah blah blah”
+
+textContent returns only text and when altering only takes in text. It doesnt keep any HTML tags that maybe was affecting the original text like <strong>.
+
+innerHTML is like textContent except with ability to return text with HTML tags along with being able to use HTML tags when altering it.
+
+Attributes
+Use getAttribute() and setAttribute() to read and write attributes like src and href
+
+setAttribute(“href”, “theNewWebsiteLink.com”);
+
+DOM EVENTS
+Making things interactive
+
+Events are everywhere
+Clicking on a button
+Hovering over a link
+Dragging and Dropping
+Pressing the Enter Key
+
+The Process
+We select an element and then we attach an event listener.
+
+To add a listener, we use a method called addEventListener()
+
+element.addEventListener(type, functionToCall);
+
+For Example:
+var button = document.querySelector(“button”);
+button.addEventListener(“click”, function() {
+	console.log(“SOMEONE CLICKED THE BUTTON!”);
+});
+
+We can use the normal way to select things, like:
+var body = document.getElementByTagName(“body”);
+
+Or we can use this shortcut when we don’t need to save and reuse the above statement.
+
+function() {
+	document.body.style.background = purple;
+}
+
+
+JQUERY
+
+Key Questions:
+What is jQuery?
+What is a library?
+Why would you use jQuery?
+Why would you not use jQuery?
+
+It comes with a bunch of useful methods to things like:
+Select Elements
+Manipulate Elements
+Create Elements
+Add Event Listeners
+Animate Elements 
+Add Effects
+Make HTTP requests (AJAX)
+
+Why Use jQuery?
+Fixes “broken” DOM API ( The DOM API, all the methods we’ve been using, used to considered broken)
+Brevity and Clarity
+Ease of use
+Cross Browser SUpport
+AJAX
+Lots of people use jQuery!
+
+Why Not Use jQuery?
+The DOM API is no longer “broken”
+It doesn’t do anything you can’t do on your own
+It’s an unnecessary dependency( for example: if you are doing only animation, its overkill to import the whole library which will add unnecessary weight)
+Performance
+Lot’s of people are moving away from jQuery.
+
+(Vanilla JS is basic JS without jQuery)
+
+Adding jQuery
+Download jQuery and link it locally
+Link to a CDN hosted site
+
+Objectives:
+Select elements with $()
+Use .css() to style elements
+Selecting with jQuery
+$(“selectorGoesHere”)
+Selecting with jQuery is very similar to querySelectorAll, in that we provide a CSS style selector and jQuery will return all the matching elements.
+
+Manipulating Style
+The .css() method is jQuery interface to styling.
+$(selector)
+.css(property, value)
+
+Common jQuery Methods
+Objectives:
+val()
+text()
+attr()
+html()
+addClass()
+removeClass()
+toggleClass()
+
+text()
+Strips out all the HTML elements and returns the text content within what’s selected.
+You can also pass in text in the parameter to change the text of whatever is selected.
+$(“h1”).text(“The New Header”); changes all the h1’s to “The New Header”
+
+html()
+Returns innerHTML content of what’s selected.
+You can also pass in html code in the parameter to change html code inside whatever element is selected.
+
+attr()
+Returns the value of whatever attribute you’re asking for.
+You can also change the attribute value by adding comma and new value in quotes.
+To return a value: $(‘img’).attr(“src”)  // returns the value of src attribute in img tag
+To change value: $(‘img’).attr(“src”, “newImageLink.com”); // changes src to newImageLink.com
+
+val()
+Returns the value currently in any sort of input or drop down menu
+
+addClass()
+You can add class like classList.add except you can apply this to multiple elements at once instead of looping through them one by one on foor loop like you would in Vanilla JS. 
+$(‘h1’).addClass(“correct”);
+removeClass()
+Same as above except now you removing classes.
+$(“h1”).removeClass(“correct”);
+
+toggleClass()
+Will either add or remove the class depending on the current situation
+$(“li”).toggleClass(“done”);
+
+**the jQuery Selector thing has a method of its own if you ever watned to not choose all the elements in the selector
+To choose the first element only: $(“h1”).first() … $(“h1”).first().addClass(“blah”);
+To choose the last element only: $(“h1”).last() … $(“h1”).last().addClass(“blah”);
+
+click()
+jQuery’s click() method is a quick and easy way to add a click listener to element(s).
+
+$(this) (jQuery) == this (Vanilla JS)
+
+keypress()
+jQuery’s keypress() method is a quick and easy way to add a keypress listener to elements.
+
+on()
+jQuery’s on() works similarly to addEventListener
+It lets you specify the type of event to listen for
+
+Why use ON()
+click() only add listeners for existing elements
+on() will add listeners for all potential future elements
+This will all make sense in the next video
+
+fadeOut()
+Fade’s out the element selected
+Default is 400ms
+$(“div”).fadeOut(1000) is telling ti to fade out in 1000 ms
+$(“div”).fadeOut(600, function() {}) is telling it to fade out in 600ms and runs the function after the fadeout is complete.
+
+fadeIn()
+Opposite of above.
+
+fadeToggle()
+Fades in or out depending on current situation.
+
+slideDown()
+slideUp()
+slideToggle()
+Works in the same way as fade but different animation
+
+
+Event Bubbling 
+Span click event will trigger li event which will trigger div container event and it will keep goig on
+jQuery method to stop this is:
+event.stopPropagation();
+Event is the parameter passed into the function called back by the eventhandler.
+So $(“span”).click(function(e) {}) ---e would be the in e.stopPropagation();
+
+Now lets say you dont want event bubbling but you want something done only to the parent element from an inner element event listener. We then have to use parent().
+For Example:
+If we click on a span to delete an li
+$(span).parent().remove(); would affect the parent element with is li.
+
+append()
+Method that you can use to add
+For example, if you want to add an li to a ul. You should call append() on the parent element, ul, and then add the li to that element using append
+$(“ul”).append(“<li> This is the new li </li>”);
+
+In order to make some event handler affect all current and possible future elements selected we need to use the on() function
+For Example, to affect all li’s in the future as well in a ul, you have to first choose an existing element so we cant directly call the on() function on li but rather on ul.
+$(“ul”).on(“click”, “li”, function() {});
+
+
+BACKEND BASICS
+You ask for a web page and get one back
+
+Request / Response
+
+Postman lets you do different HTTP requests for websites
+
+We can make requests from all different types of places like web browser or terminal or anyhting.
+
+Most popular requests types (HTTP verbs)
+GET
+POST
+PUT
+PATCH
+DELETE
+
+GET - Retrieveing informatoin only not really sending data along with request
+
+POST - Posting new information to a database.. Sending data along with the request
+
+PATCH - Used to update or edit things 
+
+PUT - Same as above
+
+DELETE - Server expects to delete something from database
+
+These are all protocols..doesn’t mean the request will actually do what it says but it should be expected.
+
+3 important parts of every response
+
+Body - the payload of what’s being sent back (Consists of HTML, CSS, and JS)
+
+Headers - metadata about the response like content type (For example sending back HTML), date and time, and status (status code is a number [like 404] standardizes way of telling what happened. Like 200 means everything went fine.
+
+Writing a url on browser is basically sending a GET request.
+
+NODE.JS
+
+Before Node.js, JavaScript would only be executed by the browser. That indirectly meant that it could only be used to front end web development. But after node, JavaScript can now be executed without a browser meaning it cna be used to write server side code.
+
+REPL:
+Read Evaluate Print Loop
+
+Write node on terminal to start Node Console.
+
+Node Console is different than Javascript console on web browser. Like alert() doesnt exist on the node console. Nor does document or eventlisteners
+
+
+Running a file with Node
+Its as simple as writing   node filename.js
+File must end with .js
+
+Intro to NPM
+Define NPM
+Explain why NPM is awesome
+Intro the packages we will end up using
+
+Node Package Manager
+
+Packages are like libraries (pre written code) that we use in node.js
+Since we can’t use script tags to import libraries becuase there is no HTML on backend we use npm instead.
+
+‘npm install’ is the command we use to get these packages
+
+NPM is central repo for over 2000 packages
+
+All installed packages live inside /node_modules
+
+TO use it, we need to import the package(s) in our code.
+Var something = require(“cat-me”); //this will inlcude all the code needed to import cat-me and save it in var something.
+
+And then we use that varable as the function name to do whatever you’ve imported.
+
+Introduction to Express
+
+What is a framework? How is it different from a library?
+What is Express?
+Why are we using Express?
+
+Framework is not as much control. Some decision are made for us and we have to abide by it.
+
+Library is something you’re control of. You can call whatever methods you want.
+
+Express is a web dev framework.
+
+Express is the most popular node web dev framework.
+
+Heavyweight vs Lightweight Framework
+Heavyweight = has much more code filled in and less blanks that you need to fill
+Lightweight = has much less code filled in and more blanks for you to fill.
+
+Express is lightweight. It’s more transparent.
+
+NPM Unit and Package.json
+Use the ‘--save’ flag to install packages
+Explain what the package.json file does
+Use ‘npm init’ to create a new package.json
+
+Think of package.json as a readMe file in which we have a description of the file. Package.json is especially useful because when we upload big projects on, for example GitHub, we don’t include all the dependencies of the package too. Dependencies are the things the package needs to run. Instead, we list the dependencies out in package.json and whoever downloads the package needs to separately download the dependencies as well.
+
+Package.json is a readme file for the app you’re creating. It contains the Dependencies (packages needed for this app to work). 
+
+Use “--save” flag after npm install packageName to save the package under dependencies as well.
+
+-----So for every project you create
+You need to be in that file directory.
+Then npm init to create a package.json. (You could do it manually by using touch but this is easier.
+Once you set it up, you can use bash to add dependencies (packages) by using the command npm install **package** --save (--save is important becuase it add the package under dependencies in package.json automatically.)
+
+More About Routing
+
+Show the ‘*’ route matcher
+Write routes containing route parameters
+Discuss route order
+ 
+‘*’ route matcher
+app.get(“*”, function(req, res) {})
+The * route matcher catches all other directories that dont exist. Its like rerouting to Error Page 404.
+
+Route Order matters because in express it read top to bottom for what response to give and stop reading after its found its solution. So writing app.get(“*”, ….) will automatically redirect every page to the 404 page even though the route might be defined later on in the code. 
+
+Route parameter are like path variables.
+Example: http://www.reddit.com/r/subReddit/comments/id/title
+In the link above, the subreddit is can be any different subreddit (r/funny, r/soccer, etc) and reddit obviously didn’t hard code every single subreddit. Instead they set the get statement to accept subreddit as a variable.
+	app.get(“/r/:subRedditName/comments/:ID/:title”, ……..);
+The :subRedditName tells Express that we aren’t expecting the string literal “subRedditName” but rather a path variable (or route parameter) that cane be named anything.
+
+Rendering HTML and Templates
+Use res.render() to render HTML(from an EJS file)
+Explain what EJS is and why we use it
+Pass variables to EJS templates
+res.render() is a way to send back an Embedded JavaScript file instead just some text over res.send(). Embedded JavaScript (EJS) is basically an HTML file that you can include some JS in it as well. It will allow us to make dynamic web pages
+You need to save all files that are going to be rendered in a folder called views. Express specifically looks for the views folder to find the ejs file you are asking for.
+Also we needed to instal ejs →  npm install ejs --save
+<%= %> is the tags we use to write the JS in between .
+And to pass data from app.js to whatever.ejs we need to add another argument in res.render() which is an object and in the object literal we need to make the property(var in ejs file) : value(var in app.js file).
+
+EJS Control Flow
+Show examples of control flow in EJS templates
+Write if statements in an EJS file
+Write loops in an EJS file
+How to write if statement
+
+<% if(thingVar.toLowerCase() === “rusty”) { %>
+	<p>Good choice Rusty is the best</p>
+<% } %>
+
+<%= %> - This syntax will simply add the JS inside to the hTML content. 
+
+<% %> - This syntax means we dont want it to be added to HTML just like that. Its meant for control flows or logic statements that don’t directly need to be added to html (for ex. If statement)
+THE EJS brackets are inline and need to be added to every line of JS individually.
+
+Styles and Partials
+Show how to properly include public assets
+Properly configure our app to use EJS
+Use partials to dry up our code!
+
+*SideNote: An EJS file is a template.
+
+We can use style tags on EJS file but thats not a good idea becuase if all our file follow a common theme, the our code will be repeat on every EJS file. (Not DRY Code!).
+
+Conventional way of storing seperate CSS and JS files is to make a file directory called public in whihc all your files of CSS and JS live.
+
+To connect the CSS file in public to our app we need to tell express to explicitly include the public file directory as well. Express only automatically includes the views directory.
+To include public file directory: app.use(express.static(“public”));
+
+Partials are files/templates that we can include in other templates.Partials contain usually the boiler plate of HTML thta we know for sure will be in template page.
+We save these partials under views/partials directory.
+And then to include them in our regular template ejs files, we use:
+<% include partials/header.ejs %>
+And we know that the express app automatically looks for views directory but it doesnt look into views/partials directory so we have to explicity say that when we write our include tags.
+
+**Side Note: we should add “/” a slash before the app.css in our link tag so it doesnt just look for it in whatever directory it is in currently but rather for it to look in root ad find its way to the actual directory.
+
+To set up a form there are two important attributes, action and method. Action is the url where we want to send and method is the type of request we are sending. In this case we are sending POST request to /addfriend. So:
+	<form action=”/addfriend” method=”POST”>
+		<input type=>
+	</form>
+
+We can get the data from th input by accessing the request body. So: req.body
+
+But xpress doesnt automatically turn request body into a JS object for us to read.  we need to do that explicitly do it. And for that we need to npm install body-parser --save
+
+
+Color pages
+App.js
+Package.json
+Views/
+	Color page.ejs
+	Partials/
+		Header.ejs
+		Footer.ejs
+Public/
+
+
+Intro to API
+Application Programming Interface
+
+API’s are interface for code/computers to talk to one another. 
+
+Data Formats of API;s
+When we use the internet, we make HTTP request and get HTML back
+
+API’s dont respond with HTML. HTML contains information about the structure of a page. API’s respond with data, not structure.
+
+They use simpler data formats like XML and JSON
+
+XML 
+Extended Markup Language
+XML is syntacticly similar to HTML, but it does not describe presentation like HTML does.
+
+JSON 
+Javascript Object Notation
+Looks like JS
+
+To access API’s in our code we need to make HTTP requests within our code.
+
+We can make HTTP request from the commandline by using the curl command.
+curl http://www.google.com
+
+But to make the HTTP request from node, We need to install ‘request’ package first.
+Then we do something along the line of:
+var request = require('request');
+
+request('https://www.reddit.com', function(error, response, body){});
+So when you make a HTTP request to API endpoint you get all the data back but its all in string so you have the parse it first.
+Use: JSON.parse(body)
+
+Body is the data recieved (always)
+
+Then when you get the data you always have to usually keep goig into objects till you gte the data you’re looking for.
+
+&apikey=thewdb
+
+
+INTRO TO DATABASES
+What is a database?
+SQL vs NoSQL
+Database is a collection of information/data and it has an interface (meaning able to write code to interact with data)
+
+SQL = relational 
+NoSQL = non-relational
+
+SQL is tabular data  and because everything is in tables, we have to follow a strict pattern.
+
+NoSQL however is flexible looks like JS and is not flat
+
+MongoDB
+What is MongoDB?
+Why are we using it?
+Lets Install it
+NOSQL non relational database that we will be using because its one fo the biggest and part of the most popular web stack right now.
+Our First Mongo Commands
+mongod 
+mongo 
+help 
+show dbs
+use
+insert
+find
+update
+remove
+
+mongod - starts mongo demon, mongo process
+
+mongo - open mongo shell, like JS console, used mainly for debugging
+
+help - gives a list of basic features of mongo
+
+show dbs - show database names (local and admin are default databases)
+
+use - is how we use/create database. If it exists, we will start using it. Or else it will create a new database under that name for you. use demo ----will create a database ‘demo’ for you
+
+For example lets create a dogs database
+use demo
+This will simply create the database, but the database is empty.
+Once this database is created, mongodb will switch to db demo
+We use the insert tag to add data.
+db.dogs.insert()
+Db is the current database we are working on
+Dogs is the collection (that doesn’t exist yet)
+Insert is the command that will enter data into the collection dogs
+So:
+db.dogs.insert({name: “Rusty”, breed: “Mutt”})
+Then to see if we actually added dogs collection, we can use command
+show Collections
+
+
+Now to see what data we have in the collection, we use the find command
+db.dogs.find()
+**We usually use find command to find something specifically but if there are no parameters then it will display all of the data in the collection.
+If you want to find something specific
+db.dogs.find({name: “Rusty”})
+Will find all dogs with name property equal to Rusty
+
+Now we can update any data in our collections using update command
+Update command takes two parameters. First one to identify the data you want to update and the second one to replace it.
+db.dogs.update({name:”lulu”}, {breed: “Labradoodle”})
+But the problem is that it replace all the data to the second parameter instead of keeping everything and updating the one thing you requested.
+Result :{“_id” : ObjectId(“0928340824bj6544”), “breed” : “Labradoodle” }
+
+db.dogs.update({name: “Rusty”}, {$set: {name: “tater”, isCute: true}})
+$set: {} is a way of updating and adding new things without losing the data in the object currently
+
+Now to remove objects in data collection, we simply use the remove command
+db.dogs.remove({breed: “mutt”})
+
+
+Mongoose
+What is Mongoose?
+Why are we using it?
+Interact with a Mongo Database using Mongoose
+
+Mongoose is a package that we will use to interact with our mongoDB database within our JS file. Its an ODM Object Data Mapper, its a way to write JS to intereact with MONGO DB.
+
+RESTFUL ROUTES
+
+INDEX		/dogs		GET		Display a list of all dogs
+NEW		/dogs/new	GET		Displays form to make a new dog
+CREATE	/dogs		POST		Add new dog to DB
+SHOW		/dogs/:id	GET		Shows info about one dog
+
+Db.collection.drop to delete all the campgrounds in one command.
+
+RESTFUL ROUTING
+Define REST and explain why it matters
+List all 7 RESTful routes
+Show example of RESTful routing in practice
+REST - a maping between HTTP routes and CRUD (Create Read Update Destroy)
+
+RESTful Routes
+
+Name
+Path
+HTTP Verb
+Purpose
+index
+/dogs
+GET
+List all dogs
+New
+/dogs/new
+GET
+Show new dog form
+Create
+/dogs
+POST
+Create a new dog, then redirect somewhere
+Show
+/dogs/:id
+GET
+Show edit form for one dog
+Edit
+/dogs/:id/edit
+GET
+Show edit form for one dog
+Update
+/dogs/:id
+PUT
+Update a particular dog, then redirect somewhere
+Destroy
+/dogs/:id
+DELETE
+Delete a particular dog, then redirect somewhere.
+
+
+HTML forms only lets us do GET and POST requests only so we have to do a workaround to submit PUT request or any other request.
+
+To add npm to app.js
+var methodOverride = require(“method-override”);
+app.use(methodOverride(“_method”));
+
+Then add this to the end of action attribute in form tag
+<form action="/blogs/<% blog._id %>?_method=PUT" method=PUT>
+
+INTRO TO ASSOCIATIONS
+Define associations
+Discuss one:one, one:many, and many:many relationships
+Associations is the concept of different collections in database related to one another.
+
+One to One
+For Example: one book has one publisher
+
+One to Many
+One FB user has many photos uploaded
+
+Many to Many
+One college class has many students
+Also, many students have that college class
+
+We can connect data (associations) in Mongoose by Embedding Data and Referencing Data.
+
+Embedding Data
+User 
+Post
+One to Many
+Using User and Post for this example for Embedding Data:
+//Creating user schema and model
+var userSchema = new mongoose.Schema({
+	Email: String,
+	Name: String,
+	Posts: [postSchema]
+})
+var User = mongoose.model(“User”, userSchema);
+
+//Creating post schema and model
+var postSchema = new mongoose.Schema({
+	Title: String,
+	Content: String
+}
+var Post = mongoose.model(“Post”, postSchema);
+
+//Creating new user (constructor way)
+var newUser = new User({
+	email: “bob@gmail.com”
+	name: “Bob Odenkirk”,
+});
+
+//Creating new post.. (constructor way)
+var newPost = new Post({
+	title: “Example Post”,
+	content: “blah blha lha”
+});
+
+// Pushing newPost to newUser’s posts property
+newUser.posts.push(newPost);
+
+newUser.save(function(err, savedUser) {
+	if(err) {
+		console.log(err);
+} else {
+	console.log(savedUser);
+}
+});
+
+//Embed basically means saving the post itself in the user as a property of the User object. Should be used for one-to-many relations only.
+
+Object reference is the other type of Data Association. It shuld be used to many to relations and toher realtions.
+
+//Assume User and Post schema/models here 
+var User = require(“./models/user”);
+Var Post = require(“./models/post”);
+
+Post.create({
+	Title: “Reference Example”
+	Content: “This is an example of object reference”
+}, function(err, post){
+	if(err) {
+		console.lof(err);
+	} else {
+	User.findOne({name: “Bob Odenkirk”}, function(err, foundUser){
+		if(err) {
+			console.log(err);
+		} else {
+			foundUser.posts.push(post._id);
+			foundUser.save(function(err, savedUser){
+				if(err) {
+					console.log(err);
+				} else {
+					console.log(savedUser);
+				}
+});
+}
+});
+    }
+});
+
+//So with object reference data asscoation we dont include the actual post in a user, but istead the posts preoperty in usr references to its posts by saving the posts id. This can be used if multiple people are related to the comment (many-to-many relationship).
+
+Seeds.js
+Instead of manually creating data on the go as we test our website, seeds.js is a file we make that removes any campgrounds and data, then add the default data back in. ALl this is done by a function which we module.exports out.
+
+To add comments we going to have to use nested routes
+So using RESTful routes on comments
+We Need:
+NEW		/comments/new	GET
+CREATE	/comments		POST
+
+Except we comment on a campground page so we need to relate(nest them)
+
+NEW		campgrounds/:id/comments/new	GET
+CREATE	campgrounds/:id/comments		POST
+
+
+Intro to Auth
+What tools are we using?
+Passport
+Passport Local
+Passport Local Mongoose
+Walk through auth flow
+Discuss sessions
+Express Sessions
+
+In the User model, we need to add
+
+userSchema.plugin(passportLocalMongoose);
+
+This will add a bunch of methods that come with the  passport-local-mongoose package to user schema.
+
+Then back to app.js
+To set passport up in our application we need to write
+app.use(passport.initialize());
+app.use(passport.session());
+
+Used to encrypt and decrypt something
+app.use(require(“express-session”)({
+	Secret: “Rusty is the best and cutest dog in the world”,
+	Resave: false,
+	saveUnitialized: false
+}));
+
+Also in app.js We need to add a way to serialize and deserialize users
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+Once the username and password is entered and submitted. We need to write code to save it in our POST route.
+User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+	//this will use a predefined method, register, from 
+	//the first parameter simply changes the username property to username value from form
+	//the second parameter should be the password from form 
+	//third is just a callback function to handle error and stuff
+})
+We pass the password seperately to the second parameter becuase we can’t smply store password on database (security risk), instead User.register() turns the password into hash code and gives a salt key for use to decode, encode.
+
+In the callback function above, if there are no errors we should run this code
+passport.authenticate("local")(req, res, function() {
+                res.redirect("/secret");
+            })
+Passport.authenticate will bsaically log in the user automatically and keep them logged in (after they’ve signed up)
+
+Middleware is the idea of code that runs between the start of a route and the final end of that route handler.
+
+FOR LOGIN ROUTES
+
+app.post("/login",passport.authenticate("local",{
+    successRedirect: "/secret",
+    failureRedirect: "/login"
+}), function(req, res) {
+    
+});
+
+
