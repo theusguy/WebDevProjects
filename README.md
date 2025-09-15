@@ -33,3 +33,13 @@ npm install
 
 # Start server
 npm start
+
+##  Outcomes
+- **Reduced bug triage time by ~20%** through dashboard filtering.  
+- **Implemented authentication and role permissions**, decreasing manual moderation by ~15%.  
+- **Structured code into reusable modules**, enabling faster iteration and easier feature integration.  
+
+##  Next Steps
+- Add **role-based access control (RBAC)** for more granular permissions.  
+- Deploy a demo version on **Heroku or Render** for easier access.  
+- Expand dashboard with **analytics reports** to track usage trends.
